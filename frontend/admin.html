@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard · Portfolio</title>
+  <meta name="description" content="Portfolio Admin Panel – manage content, projects, skills and messages.">
+  <!-- Google Fonts (same as portfolio) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- BG Orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="alert" aria-live="polite"></div>
+
+  <!-- ── LOGIN SCREEN ── -->
+  <div id="loginSection" class="login-screen">
+    <div class="login-card glass">
+      <div class="login-logo">
+        <span class="logo-gem">⬡</span>
+        <span class="login-brand">Admin<span class="grad-text">Panel</span></span>
+      </div>
+      <p class="login-sub">Secure access to your portfolio dashboard</p>
+
+      <div class="form-group">
+        <label for="adminPassword"><i class="fa-solid fa-lock"></i> Password</label>
+        <div class="input-wrap">
+          <input type="password" id="adminPassword" placeholder="Enter admin password" autocomplete="current-password" required>
+          <button class="eye-btn" id="eyeBtn" onclick="toggleEye()" type="button" aria-label="Toggle password visibility">
+            <i class="fa-regular fa-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+      </div>
+
+      <button class="btn-primary-full" id="loginBtn" onclick="loginAdmin()">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i> Sign In
+      </button>
+      <div id="loginError" class="login-error" role="alert"></div>
+    </div>
+  </div>
+
+  <!-- ── DASHBOARD ── -->
+  <div id="adminDashboard" class="dashboard" style="display:none;">
+
+    <!-- Sidebar -->
+    <aside class="sidebar glass" id="sidebar">
+      <div class="sidebar-logo">
+        <span class="logo-gem">⬡</span>
+        <span class="sidebar-brand">Admin<span class="grad-text">Panel</span></span>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Dashboard navigation">
+        <button class="nav-btn active" onclick="showTab('profile')" data-tab="profile">
+          <i class="fa-regular fa-user"></i><span>Profile</span>
+        </button>
+        <button class="nav-btn" onclick="showTab('projects')" data-tab="projects">
+          <i class="fa-solid fa-code-branch"></i><span>Projects</span>
+        </button>
+        <button class="nav-btn" onclick="showTab('skills')" data-tab="skills">
+          <i class="fa-solid fa-layer-group"></i><span>Skills</span>
+        </button>
+        <button class="nav-btn" onclick="showTab('experience')" data-tab="experience">
+          <i class="fa-solid fa-briefcase"></i><span>Experience</span>
+        </button>
+        <button class="nav-btn" onclick="showTab('messages')" data-tab="messages">
+          <i class="fa-regular fa-envelope"></i><span>Messages</span>
+          <span class="nav-badge" id="msgBadge" style="display:none;"></span>
+        </button>
+      </nav>
+
+      <button class="logout-btn" onclick="logoutAdmin()">
+        <i class="fa-solid fa-right-from-bracket"></i><span>Logout</span>
+      </button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dash-main">
+
+      <!-- Top Bar -->
+      <header class="dash-header glass">
+        <div class="dash-header-left">
+          <button class="burger-btn" id="burgerBtn" onclick="toggleSidebar()" aria-label="Toggle sidebar">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="breadcrumb">
+            <span class="grad-text" id="breadcrumbLabel">Profile</span>
+          </div>
+        </div>
+        <div class="dash-header-right">
+          <div class="admin-badge">
+            <i class="fa-solid fa-shield-halved"></i> Admin
+          </div>
+        </div>
+      </header>
+
+      <!-- ── PROFILE TAB ── -->
+      <section id="profileTab" class="tab active-tab">
+        <div class="tab-header">
+          <h2 class="tab-title"><i class="fa-regular fa-user"></i> Profile</h2>
+          <p class="tab-sub">Update your bio and contact details shown on the portfolio.</p>
+        </div>
+        <div class="card glass">
+          <form id="profileForm" class="dash-form">
+            <div class="form-group">
+              <label for="bio">Bio</label>
+              <textarea id="bio" rows="5" placeholder="Write a short bio about yourself…"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" placeholder="+91 0000000000">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="github">GitHub URL</label>
+                <input type="url" id="github" placeholder="https://github.com/username">
+              </div>
+              <div class="form-group">
+                <label for="linkedin">LinkedIn URL</label>
+                <input type="url" id="linkedin" placeholder="https://linkedin.com/in/username">
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">
+                <i class="fa-solid fa-floppy-disk"></i> Save Changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ── PROJECTS TAB ── -->
+      <section id="projectsTab" class="tab">
+        <div class="tab-header">
+          <h2 class="tab-title"><i class="fa-solid fa-code-branch"></i> Projects</h2>
+          <p class="tab-sub">Add, edit or remove portfolio projects.</p>
+        </div>
+        <div class="card glass">
+          <h3 class="card-sub-title" id="projectFormTitle">Add New Project</h3>
+          <form id="projectForm" class="dash-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="projectTitle">Title</label>
+                <input type="text" id="projectTitle" placeholder="Project name" maxlength="120" required>
+              </div>
+              <div class="form-group">
+                <label for="projectTags">Tags <span class="opt">(comma-separated)</span></label>
+                <input type="text" id="projectTags" placeholder="React, Node.js, MongoDB" maxlength="500">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="projectDesc">Description</label>
+              <textarea id="projectDesc" rows="3" placeholder="Short project description…"></textarea>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="projectGithub">GitHub URL</label>
+                <input type="url" id="projectGithub" placeholder="https://github.com/…">
+              </div>
+               <div class="form-group">
+                 <label for="projectLive">Live URL <span class="opt">(optional)</span></label>
+                 <input type="url" id="projectLive" placeholder="https://your-project.com">
+               </div>
+             </div>
+             <div class="form-row">
+               <div class="form-group">
+                 <label for="projectCategory">Category</label>
+                 <select id="projectCategory">
+                   <option value="web">Web App</option>
+                   <option value="mobile">Mobile</option>
+                   <option value="design">Design</option>
+                 </select>
+               </div>
+               <div class="form-group">
+                 <label for="projectImage">Image URL <span class="opt">(optional)</span></label>
+                 <input type="url" id="projectImage" placeholder="https://example.com/project.jpg">
+               </div>
+             </div>
+             <div class="form-actions">
+               <button type="submit" class="btn-primary" id="projectSubmitBtn">
+                 <i class="fa-solid fa-plus"></i> Add Project
+               </button>
+               <button type="button" class="btn-ghost" id="projectCancelBtn" onclick="cancelProjectEdit()" hidden>
+                 Cancel Edit
+               </button>
+            </div>
+          </form>
+        </div>
+        <div id="projectsList" class="items-grid"></div>
+      </section>
+
+      <!-- ── SKILLS TAB ── -->
+      <section id="skillsTab" class="tab">
+        <div class="tab-header">
+          <h2 class="tab-title"><i class="fa-solid fa-layer-group"></i> Skills</h2>
+          <p class="tab-sub">Manage the technology skills shown on your portfolio.</p>
+        </div>
+        <div class="card glass">
+          <h3 class="card-sub-title" id="skillFormTitle">Add New Skill</h3>
+          <form id="skillForm" class="dash-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="skillName">Skill Name</label>
+                <input type="text" id="skillName" placeholder="e.g. React.js" maxlength="80" required>
+              </div>
+              <div class="form-group">
+                <label for="skillCategory">Category</label>
+                <select id="skillCategory">
+                  <option value="Front-End">Front-End</option>
+                  <option value="Back-End">Back-End</option>
+                  <option value="Database">Database</option>
+                  <option value="Developer Tools">Developer Tools</option>
+                  <option value="Design Tools">Design Tools</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+             <div class="form-actions">
+               <button type="submit" class="btn-primary" id="skillSubmitBtn">
+                 <i class="fa-solid fa-plus"></i> Add Skill
+               </button>
+               <button type="button" class="btn-ghost" id="skillCancelBtn" onclick="cancelSkillEdit()" hidden>
+                 Cancel Edit
+               </button>
+            </div>
+          </form>
+        </div>
+        <div id="skillsList" class="items-grid"></div>
+      </section>
+
+      <!-- ── EXPERIENCE TAB ── -->
+      <section id="experienceTab" class="tab">
+        <div class="tab-header">
+          <h2 class="tab-title"><i class="fa-solid fa-briefcase"></i> Experience</h2>
+          <p class="tab-sub">Add your work experience and education history.</p>
+        </div>
+        <div class="card glass">
+          <h3 class="card-sub-title" id="experienceFormTitle">Add Entry</h3>
+          <form id="experienceForm" class="dash-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expTitle">Role / Degree</label>
+                <input type="text" id="expTitle" placeholder="e.g. Full Stack Developer" maxlength="140" required>
+              </div>
+              <div class="form-group">
+                <label for="expCompany">Company / Institution</label>
+                <input type="text" id="expCompany" placeholder="e.g. Google" maxlength="140">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="expDate">Date Range</label>
+                <input type="text" id="expDate" placeholder="Jan 2023 – Present">
+              </div>
+              <div class="form-group">
+                <label for="expType">Type</label>
+                <select id="expType">
+                  <option value="Work">Work</option>
+                  <option value="Education">Education</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="expDesc">Description</label>
+              <textarea id="expDesc" rows="3" placeholder="Brief description of responsibilities…"></textarea>
+            </div>
+             <div class="form-actions">
+               <button type="submit" class="btn-primary" id="experienceSubmitBtn">
+                 <i class="fa-solid fa-plus"></i> Add Entry
+               </button>
+               <button type="button" class="btn-ghost" id="experienceCancelBtn" onclick="cancelExperienceEdit()" hidden>
+                 Cancel Edit
+               </button>
+            </div>
+          </form>
+        </div>
+        <div id="experienceList" class="items-grid"></div>
+      </section>
+
+      <!-- ── MESSAGES TAB ── -->
+      <section id="messagesTab" class="tab">
+        <div class="tab-header">
+          <h2 class="tab-title"><i class="fa-regular fa-envelope"></i> Messages</h2>
+          <p class="tab-sub">View contact form submissions from your portfolio.</p>
+        </div>
+        <div id="messagesList" class="messages-list"></div>
+      </section>
+
+    </main>
+  </div><!-- /dashboard -->
+
+  <!-- Custom JS -->
+  <script src="js/api.js?v=3"></script>
+  <script src="js/admin.js?v=3"></script>
+</body>
+</html>

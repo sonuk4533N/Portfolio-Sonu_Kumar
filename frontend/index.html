@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sonu Kumar — Full-Stack Developer crafting elegant digital experiences">
+  <meta name="theme-color" content="#080810">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sonu Kumar - Full-Stack Developer">
+  <meta property="og:description" content="Full-stack developer building responsive, scalable web applications with modern technologies.">
+  <meta property="og:image" content="images/og-portfolio.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sonu Kumar - Full-Stack Developer">
+  <meta name="twitter:description" content="Full-stack developer building responsive, scalable web applications with modern technologies.">
+  <meta name="twitter:image" content="images/og-portfolio.png">
+  <title>Sonu Kumar · Full-Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="pre-logo">◆</div>
+    <div class="pre-bar">
+      <div class="pre-fill"></div>
+    </div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div id="cursorDot" class="cursor-dot"></div>
+  <div id="cursorRing" class="cursor-ring"></div>
+
+  <!-- Background Orbs -->
+  <div class="bg-orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-wrap">
+      <a href="#home" class="nav-logo">
+        <span class="logo-gem">◆</span>
+        <span class="logo-txt">dev<span class="logo-dot">.</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home" class="nav-link active" data-nav>Home</a>
+        <a href="#about" class="nav-link" data-nav>About</a>
+        <a href="#work" class="nav-link" data-nav>Work</a>
+        <a href="#skills" class="nav-link" data-nav>Skills</a>
+        <a href="#experience" class="nav-link" data-nav>Experience</a>
+        <a href="#contact" class="nav-link" data-nav>Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <a href="#contact" class="btn btn-hire">Hire Me</a>
+        <button class="burger" id="burger" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mob-menu" id="mobMenu">
+    <div class="mob-inner">
+      <a href="#home" class="mob-link">Home</a>
+      <a href="#about" class="mob-link">About</a>
+      <a href="#work" class="mob-link">Work</a>
+      <a href="#skills" class="mob-link">Skills</a>
+      <a href="#experience" class="mob-link">Experience</a>
+      <a href="#contact" class="mob-link">Contact</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ── HERO ───────────────────────────── -->
+    <section id="home" class="hero">
+      <div class="hero-wrap">
+        <div class="hero-left reveal-up">
+          <div class="hero-badge">
+            <span class="badge-pulse"></span>
+            <span>Available for work</span>
+          </div>
+          <h1 class="hero-h1">
+            <span class="h1-greeting">Hello, I'm</span>
+            <span class="h1-name">Sonu Kumar</span>
+            <span class="h1-role">
+              I build <span id="typedText" class="typed-text"></span><span class="type-cursor">|</span>
+            </span>
+          </h1>
+          <p class="hero-desc">
+            Full Stack Developer with expertise in React.js, Angular, Node.js &amp; PHP — building responsive, scalable web apps with clean code and high-performance user experiences.
+          </p>
+          <div class="hero-btns">
+            <a href="#work" class="btn btn-primary"><span>View My Work</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="resume.pdf" class="btn btn-ghost" id="resumeBtn" download="Sonu_Kumar_Resume.pdf"><i class="fa-solid fa-download"></i><span>Resume</span></a>
+          </div>
+          <div class="hero-socials">
+            <a href="https://github.com/sonuk4533N" class="soc-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/sonukumar45" class="soc-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="tel:+919667474437" class="soc-icon" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+            <a href="mailto:sonukumar4533n@gmail.com" class="soc-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="hero-right reveal-right">
+          <div class="avatar-wrap">
+            <div class="avatar-ring-outer"></div>
+            <div class="avatar-glow"></div>
+            <div class="avatar-fb" id="avatarFb" role="img" aria-label="Sonu Kumar initials">SK</div>
+            <div class="avatar-badge"><i class="fa-solid fa-code"></i></div>
+          </div>
+          <div class="float-card fc-1">
+            <span class="fc-icon">🚀</span>
+            <div><div class="fc-val">5+</div><div class="fc-lbl">Projects</div></div>
+          </div>
+          <div class="float-card fc-2">
+            <span class="fc-icon">💼</span>
+            <div><div class="fc-val">3+</div><div class="fc-lbl">Clients</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-hint">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- ── ABOUT ──────────────────────────── -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="sec-label reveal-up">About</div>
+        <h2 class="sec-title reveal-up">The person behind<br>the <span class="grad-text">code</span></h2>
+
+        <div class="about-grid">
+          <div class="about-text reveal-left">
+            <p class="about-lead">Full Stack Developer building responsive, scalable web applications with modern technologies — passionate about clean code and high-performance user experiences.</p>
+            <p class="about-body">Proficient in front-end frameworks (React.js, Angular) and back-end technologies (Node.js, PHP, MySQL). I enjoy turning complex problems into elegant, intuitive digital solutions.</p>
+            <p class="about-body">Currently pursuing my BCA at Modern College of Professional Studies, Ghaziabad, while actively building real-world projects and growing as a developer.</p>
+            <div class="stats-row">
+              <div class="stat"><span class="stat-n" data-count="5">0</span><span class="stat-plus">+</span><span class="stat-l">Projects</span></div>
+              <div class="stat-div"></div>
+              <div class="stat"><span class="stat-n" data-count="3">0</span><span class="stat-plus">+</span><span class="stat-l">Clients</span></div>
+              <div class="stat-div"></div>
+              <div class="stat"><span class="stat-n" data-count="94">0</span><span class="stat-plus">/100</span><span class="stat-l">Lighthouse</span></div>
+            </div>
+          </div>
+          <div class="about-img-col reveal-right">
+            <div class="about-img-wrap">
+              <div class="about-img-fb" role="img" aria-label="Sonu Kumar initials">SK</div>
+              <div class="about-img-deco"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── WORK ───────────────────────────── -->
+    <section id="work" class="work">
+      <div class="container">
+        <div class="sec-label reveal-up">Work</div>
+        <h2 class="sec-title reveal-up">Featured <span class="grad-text">Projects</span></h2>
+        <div class="filter-row reveal-up">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web App</button>
+          <button class="filter-btn" data-filter="mobile">Mobile</button>
+          <button class="filter-btn" data-filter="design">Design</button>
+        </div>
+        <div id="projectsContainer" class="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── SKILLS ─────────────────────────── -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <div class="sec-label reveal-up">Skills</div>
+        <h2 class="sec-title reveal-up">Tech <span class="grad-text">Stack</span></h2>
+        <div id="skillsContainer" class="skills-grid"></div>
+      </div>
+    </section>
+
+    <!-- ── EXPERIENCE ─────────────────────── -->
+    <section id="experience" class="experience">
+      <div class="container">
+        <div class="sec-label reveal-up">Experience</div>
+        <h2 class="sec-title reveal-up">Experience &amp; <span class="grad-text">Education</span></h2>
+        <div id="experienceContainer" class="timeline"></div>
+      </div>
+    </section>
+
+    <!-- ── CONTACT ────────────────────────── -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="sec-label reveal-up">Contact</div>
+        <h2 class="sec-title reveal-up">Let's work <span class="grad-text">together</span></h2>
+        <p class="sec-sub reveal-up">Have a project in mind? I'd love to hear about it.</p>
+
+        <div class="contact-grid">
+          <div class="contact-info reveal-left">
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div><div class="ci-label">Email</div><a href="mailto:sonukumar4533n@gmail.com" class="ci-val">sonukumar4533n@gmail.com</a></div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fa-solid fa-phone"></i></div>
+              <div><div class="ci-label">Phone</div><a href="tel:+919667474437" class="ci-val">+91-9667474437</a></div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div><div class="ci-label">Location</div><div class="ci-val">Kaushambi, Uttar Pradesh, India</div></div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fa-solid fa-clock"></i></div>
+              <div><div class="ci-label">Response Time</div><div class="ci-val">Within 24 hours</div></div>
+            </div>
+            <div class="ci-socials">
+              <a href="https://github.com/sonuk4533N" class="ci-soc" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i><span>github.com/sonuk4533N</span></a>
+              <a href="https://www.linkedin.com/in/sonukumar45" class="ci-soc" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i><span>linkedin.com/in/sonukumar45</span></a>
+            </div>
+          </div>
+
+          <form id="contactForm" class="contact-form reveal-right" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone <span class="opt">(optional)</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 00000 00000">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+                required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <span>Send Message</span><i class="fa-solid fa-paper-plane"></i>
+            </button>
+            <div id="formMessage" class="form-feedback"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#home" class="footer-logo">
+          <span class="logo-gem">◆</span>
+          <span>dev<span class="logo-dot">.</span></span>
+        </a>
+        <p class="footer-copy">© <span id="footerYear">2026</span> Sonu Kumar · Crafted with ❤️ &amp; code.</p>
+        <div class="footer-links">
+          <a href="privacy.html" class="f-link">Privacy</a>
+          <a href="admin.html" class="f-link">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/resume-data.js?v=3"></script>
+  <script src="js/api.js?v=3"></script>
+  <script src="js/main.js?v=3"></script>
+</body>
+
+</html>

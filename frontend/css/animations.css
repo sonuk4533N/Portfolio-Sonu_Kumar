@@ -1,0 +1,69 @@
+/* ── SCROLL REVEAL ── */
+/* Only hide elements for animation when JS has loaded */
+body.js-loaded .reveal-up,
+body.js-loaded .reveal-left,
+body.js-loaded .reveal-right { opacity:0; transition:opacity .7s var(--ease),transform .7s var(--ease); pointer-events: none; }
+body.js-loaded .reveal-up    { transform:translateY(40px) }
+body.js-loaded .reveal-left  { transform:translateX(-40px) }
+body.js-loaded .reveal-right { transform:translateX(40px) }
+.reveal-up.in,.reveal-left.in,.reveal-right.in { opacity:1 !important; transform:none !important; pointer-events: auto !important; }
+
+/* stagger children */
+.reveal-up:nth-child(2){transition-delay:.1s}
+.reveal-up:nth-child(3){transition-delay:.2s}
+.reveal-up:nth-child(4){transition-delay:.3s}
+
+/* ── PROJECT CARD ENTRANCE ── */
+body.js-loaded .project-card { opacity:0;transform:translateY(32px);transition:opacity .6s var(--ease),transform .6s var(--ease),border-color .35s,box-shadow .35s }
+.project-card.in { opacity:1 !important;transform:translateY(0) !important }
+.project-card:nth-child(2){transition-delay:.1s}
+.project-card:nth-child(3){transition-delay:.2s}
+.project-card:nth-child(4){transition-delay:.05s}
+.project-card:nth-child(5){transition-delay:.15s}
+.project-card:nth-child(6){transition-delay:.25s}
+
+/* ── SKILL CARD ENTRANCE ── */
+body.js-loaded .skill-cat { opacity:0;transform:translateY(24px);transition:opacity .5s var(--ease),transform .5s var(--ease),border-color .3s }
+.skill-cat.in { opacity:1 !important;transform:translateY(0) !important }
+.skill-cat:nth-child(2){transition-delay:.07s}
+.skill-cat:nth-child(3){transition-delay:.14s}
+.skill-cat:nth-child(4){transition-delay:.21s}
+
+/* ── TIMELINE ITEM ── */
+body.js-loaded .tl-item { opacity:0;transform:translateX(-20px);transition:opacity .6s var(--ease),transform .6s var(--ease) }
+.tl-item.in { opacity:1 !important;transform:none !important }
+.tl-item:nth-child(2){transition-delay:.12s}
+.tl-item:nth-child(3){transition-delay:.24s}
+.tl-item:nth-child(4){transition-delay:.36s}
+
+
+
+/* ── HERO STAGGER ── */
+.hero-badge{animation:fadeUp .6s var(--ease) .1s both}
+.hero-h1{animation:fadeUp .7s var(--ease) .25s both}
+.hero-desc{animation:fadeUp .7s var(--ease) .4s both}
+.hero-btns{animation:fadeUp .7s var(--ease) .5s both}
+.hero-socials{animation:fadeUp .7s var(--ease) .6s both}
+.hero-right{animation:fadeIn .9s var(--ease) .3s both}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ── HOVER TILT ── */
+.project-card{transform-style:preserve-3d}
+
+/* ── SUBMIT LOADING ── */
+.btn-loading{pointer-events:none}
+.btn-loading span{opacity:0}
+.btn-loading::after{content:'';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;width:20px;height:20px;margin:auto;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── FILTER ANIM ── */
+.filter-btn{transition:background .2s,color .2s,border-color .2s,transform .15s}
+.filter-btn:active{transform:scale(.95)}
+
+/* ── NAVBAR LINK UNDERLINE ── */
+.nav-link{position:relative}
+.nav-link::after{content:'';position:absolute;bottom:2px;left:50%;right:50%;height:1.5px;background:var(--p);border-radius:2px;transition:left .25s,right .25s}
+.nav-link.active::after,.nav-link:hover::after{left:14px;right:14px}
